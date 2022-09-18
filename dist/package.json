@@ -1,12 +1,12 @@
 {
-    "name": "@david.harwardt/lib",
+    "name": "@david.harwardt/canvas-2d",
     "version": "0.1.0",
     "description": "a library",
     "module": "lib/es6/index.js",
     "sideEffects": false,
     "repository": {
         "type": "git",
-        "url": "<url>"
+        "url": "github.com/davidHarwardt/canvas-base"
     },
     "files": [
         "lib",
