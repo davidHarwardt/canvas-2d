@@ -1,0 +1,24 @@
+{
+    "name": "@david.harwardt/lib",
+    "version": "0.1.0",
+    "description": "a library",
+    "module": "lib/es6/index.js",
+    "sideEffects": false,
+    "repository": {
+        "type": "git",
+        "url": "<url>"
+    },
+    "files": [
+        "lib",
+        "CHANGELOG.md",
+        "LICENSE",
+        "package.json",
+        "README.md"
+    ],
+    "keywords": [
+        "javascript",
+        "typescript"
+    ],
+    "author": "david harwardt <harwardt.david@gmail.com>",
+    "license": "MIT"
+}

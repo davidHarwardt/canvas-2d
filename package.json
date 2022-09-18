@@ -1,0 +1,14 @@
+{
+    "name": "package_name",
+    "version": "0.1.0",
+    "repository": "<repo>",
+    "author": "david harwardt <harwardt.david@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "compile": "tsc",
+        "publish": "cd ./dist && npm publish --access=public"
+    },
+    "devDependencies": {
+        "typescript": "^4.8.3"
+    }
+}
