@@ -42,6 +42,7 @@ class Canvas2d {
     constructor(element: HTMLCanvasElement) {
         this.element = element;
         this.ctx = this.element.getContext("2d");
+        this.plugins = [];
     }
 
     static fromParent(parent: HTMLElement): Canvas2d {
@@ -81,7 +82,7 @@ class Canvas2d {
         if(style.borderWidth > 0) { this.ctx.strokeStyle = style.borderColor?.toString() ?? Color.red.toString(); this.ctx.lineWidth = style.borderWidth; this.ctx.stroke(); }
     }
 
-    public drawCircle(center: Vec2, radius: number, style: Canvas2dShapeStyle) {
+    public drawCircle(center: Vec2, radius: number, style: Canvas2dShapeStyle = {}) {
         this.ctx.beginPath();
         this.ctx.arc(center.x, center.y, radius, 0, Math.PI * 2);
 
