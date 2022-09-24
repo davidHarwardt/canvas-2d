@@ -1,8 +1,9 @@
 {
     "name": "@david.harwardt/canvas-2d",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "a library for the 2d canvas-api",
     "module": "lib/es6/index.js",
+    "types": "lib/es6/index.d.ts",
     "sideEffects": false,
     "repository": {
         "type": "git",
