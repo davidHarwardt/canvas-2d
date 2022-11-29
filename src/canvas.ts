@@ -32,6 +32,11 @@ interface ICanvasPlugin {
     init(canvas: Canvas2d): void;
     beforeDrawBegin(canvas: Canvas2d): void;
     afterDrawEnd(canvas: Canvas2d): void;
+    get id(): string;
+}
+
+interface Canvas2dPluginMap {
+
 }
 
 class Canvas2d {
@@ -53,6 +58,10 @@ class Canvas2d {
 
     public addPlugin(plugin: ICanvasPlugin) {
         this.plugins.push(plugin);
+    }
+
+    public getPlugin<T extends ICanvasPlugin>(id: string): T | undefined {
+        return (this.plugins.find(v => v.id == id) as T)
     }
 
     public clear() { this.ctx.clearRect(0, 0, this.element.width, this.element.height) }
@@ -177,6 +186,7 @@ export type {
     Canvas2dTextStyle,
 
     ICanvasPlugin,
+    Canvas2dPluginMap,
 }
 
 export {
