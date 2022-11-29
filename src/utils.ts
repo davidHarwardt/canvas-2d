@@ -42,8 +42,7 @@ class DrawLoop {
         let currentTime = Date.now();
         let delta = currentTime - this._lastTime;
         this._lastTime = currentTime;
-        let dt = 1 / (delta * 1000);
-        return dt
+        return delta
     }
 
     private _getElapsedT(): number {
