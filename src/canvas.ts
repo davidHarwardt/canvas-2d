@@ -35,8 +35,8 @@ interface ICanvasPlugin {
     get id(): string;
 }
 
-interface Canvas2dPluginMap {
-
+declare global {
+    interface Canvas2dPluginMap {  }
 }
 
 class Canvas2d {
