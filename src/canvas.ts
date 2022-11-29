@@ -43,11 +43,13 @@ class Canvas2d {
     public readonly element: HTMLCanvasElement;
     private ctx: CanvasRenderingContext2D;
     private plugins: ICanvasPlugin[];
+    private pluginsInit: boolean;
 
     constructor(element: HTMLCanvasElement) {
         this.element = element;
         this.ctx = this.element.getContext("2d");
         this.plugins = [];
+        this.pluginsInit = false;
     }
 
     static fromParent(parent: HTMLElement): Canvas2d {
@@ -60,11 +62,20 @@ class Canvas2d {
         this.plugins.push(plugin);
     }
 
-    public getPlugin<T extends ICanvasPlugin>(id: string): T | undefined {
+    public getPlugin<T extends keyof Canvas2dPluginMap>(
+        id: T
+    ): Canvas2dPluginMap[T] | undefined {
         return (this.plugins.find(v => v.id == id) as T)
     }
 
-    public clear() { this.ctx.clearRect(0, 0, this.element.width, this.element.height) }
+    public clear() {
+        if(!this.pluginsInit) {
+            this.plugins.forEach(v => v.init(this));
+            this.pluginsInit = true;
+        }
+
+        this.ctx.clearRect(0, 0, this.element.width, this.element.height)
+    }
 
     public beginDraw() { this.plugins.forEach(v => v.beforeDrawBegin(this)) }
 
